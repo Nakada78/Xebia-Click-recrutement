@@ -1,5 +1,6 @@
 ---
-- hosts: locahost
+- name: deploy code on different environement
+  hosts: localhost
   become: yes
   roles: 
     - deploy
