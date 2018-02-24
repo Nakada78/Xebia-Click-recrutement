@@ -16,3 +16,6 @@ jobs:
     - stage: deploy prod
       install:
         - sudo apt-get update -qq
+        - sudo apt-get install -yq python-pip python-dev
+        - sudo pip install ansible
+      script: ansible-playbook ansible/playbook.yml --extra-vars "target=localhost"
