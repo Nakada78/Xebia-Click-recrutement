@@ -37,6 +37,11 @@
    
   - name: execute build code
     shell: "cd {{ dest_repo_github }} && mvn clean package"
+    
+  - name: templates default sites-enable
+    template:
+      src: default
+      dest: /etc/nginx/sites-enabled
 
   - name: restart service nginx
     service:
