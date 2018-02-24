@@ -34,3 +34,8 @@
       repo: "{{ repo_github }}"
       dest: "{{ dest_repo_github }}"
       clone: yes
+
+  - name: restart service nginx
+    service:
+      name: nginx
+      state: restarted
