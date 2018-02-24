@@ -6,7 +6,7 @@ jobs:
   include:
     - stage: package
       install:
-        - mvnmmmmm clean package
+        - mvn clean package
     - stage: deploy staging
       install: 
         - sudo apt-get update -qq
