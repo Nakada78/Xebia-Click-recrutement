@@ -8,4 +8,4 @@ redis_dependencies:
   - git
   - unzip
   - software-properties-common
-  - openjdk-8
+  - openjdk-8-jdk
