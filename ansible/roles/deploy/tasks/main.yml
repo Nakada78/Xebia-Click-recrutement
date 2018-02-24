@@ -1,3 +1,36 @@
 ---
-  - name: test
-    shell: echo "coucou"
+  - name: apt-get update
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: install redis dependencies
+    apt:
+      name: "{{ item }}"
+      state:  installed
+    with_items:
+      - "{{ redis_dependencies }}"
+
+  - name: Set repo redis
+    apt_repository:
+      repo: "{{ repo }}"
+      state: present
+
+  - name: apt-get update
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: install redis & nginx
+    apt:
+      name: "{{ item }}"
+      state: installed
+    with_items:
+      - redis-server
+      - nginx
+
+  - name: git clone repo click
+    git:
+      repo: "{{ repo_github }}"
+      dest: "{{ dest_repo_github }}"
+      clone: yes

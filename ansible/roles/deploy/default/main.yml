@@ -1,1 +1,11 @@
 ---
+repo_github: https://github.com/Nakada78/Xebia-Click-recrutement.git 
+dest_repo_github: /opt
+repo: ppa:chris-lea/redis-server
+redis_dependencies:
+  - vim
+  - wget
+  - git
+  - unzip
+  - software-properties-common
+  - openjdk-8

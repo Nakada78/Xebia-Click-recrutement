@@ -1,6 +1,6 @@
 ---
-- name: deploy code on different environement
-  hosts: localhost
+- name: deploy code on "{{ target }}" environement
+  hosts: "{{ target }}"
   become: yes
   roles: 
     - deploy

@@ -1,10 +1,9 @@
-language: java
-jdk:
-  - oraclejdk8
-
 jobs:
   include:
     - stage: package
+      language: java
+      jdk:
+        - oraclejdk8
       install:
         - mvn clean package
     - stage: deploy staging
@@ -12,7 +11,7 @@ jobs:
         - sudo apt-get update -qq
         - sudo apt-get install -yq python-pip python-dev
         - sudo pip install ansible
-      script: ansible-playbook -i "localhost," -c local ansible/playbook.yml
+      script: ansible-playbook ansible/playbook.yml --extra-vars "target=localhost"
     - stage: deploy prod
       install:
         - sudo apt-get update -qq
