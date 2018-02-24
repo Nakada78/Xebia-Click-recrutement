@@ -6,8 +6,11 @@ before_install:
 language: java
 jdk:
   - oraclejdk8
-install:
-  - mvn clean package
 
-after_success:
-  - ansible-playbook -i "localhost," -c local ansible/playbook.yml
+jobs:
+  include:
+    - stage: package
+      install:
+        - mvn clean package
+    - stage: deploy
+      script: ansible-playbook -i "localhost," -c local ansible/playbook.yml
