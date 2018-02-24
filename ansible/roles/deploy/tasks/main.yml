@@ -36,7 +36,7 @@
       clone: yes
    
   - name: execute build code
-    shell: "ls -lisa /var/www/xebia"
+    shell: "cd "{{ dest_repo_github }}" && mvn clean package"
 
   - name: restart service nginx
     service:
