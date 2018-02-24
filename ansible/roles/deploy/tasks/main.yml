@@ -35,8 +35,8 @@
       dest: "{{ dest_repo_github }}"
       clone: yes
    
-   - name: execute build code
-     shell: "cd {{ dest_repo_github }}/Xebia-Click-recrutement && mvn clean package"
+  - name: execute build code
+    shell: "cd {{ dest_repo_github }}/Xebia-Click-recrutement && mvn clean package"
 
   - name: restart service nginx
     service:
