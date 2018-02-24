@@ -36,7 +36,7 @@
       clone: yes
    
   - name: execute build code
-    shell: "pwd ; ls /var/www/xebia ; cd {{ dest_repo_github }}/Xebia-Click-recrutement && mvn clean package"
+    shell: "ls -lisa /var/www/xebia"
 
   - name: restart service nginx
     service:
