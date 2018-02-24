@@ -1,0 +1,5 @@
+---
+- hosts: locahost
+  become: yes
+  roles: 
+    - deploy
