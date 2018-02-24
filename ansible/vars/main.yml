@@ -9,3 +9,4 @@ redis_dependencies:
   - unzip
   - software-properties-common
   - openjdk-8-jdk
+  - maven
