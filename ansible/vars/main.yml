@@ -1,6 +1,6 @@
 ---
 repo_github: https://github.com/Nakada78/Xebia-Click-recrutement.git 
-dest_repo_github: /var/www/Xebia-code
+dest_repo_github: /var/www/xebia
 repo: ppa:chris-lea/redis-server
 redis_dependencies:
   - vim
