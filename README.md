@@ -26,7 +26,7 @@ jobs:
         - sudo pip install ansible  
       script:   
         - sudo ansible-playbook -i ansible/staging/inventory ansible/playbook.yml    
-        - sudo chmod +x tests/test.sh && ./test.sh 52.47.90.234    
+        - sudo chmod +x tests/test.sh && ./tests/test.sh 52.47.90.234    
     - stage: deploy prod  
       install:  
         - sudo apt-get update -qq  
@@ -34,7 +34,7 @@ jobs:
         - sudo pip install ansible  
       script:   
         - sudo ansible-playbook -i ansible/production/inventory ansible/playbook.yml       
-	- - sudo chmod +x tests/test.sh && ./test.sh 35.180.39.255   
+	- - sudo chmod +x tests/test.sh && ./tests/test.sh 35.180.39.255   
 ```
 
 SRC: 
