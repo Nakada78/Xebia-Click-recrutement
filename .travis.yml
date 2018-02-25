@@ -13,7 +13,6 @@ jobs:
         - sudo apt-get install -yq python-pip python-dev ssh
         - sudo pip install ansible
       script: pwd
-      script: ansible-playbook ansible/playbook.yml --extra-vars "target=ec2-34-227-157-137.compute-1.amazonaws.com" ansible_ssh_private_key_file=xebia.pem ansible_user=ec2-user
     - stage: deploy prod
       install:
         - sudo apt-get update -qq
