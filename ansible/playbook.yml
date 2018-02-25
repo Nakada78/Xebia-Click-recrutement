@@ -1,5 +1,5 @@
 ---
-- name: deploy code on all environement
+- name: deploy Click application
   hosts: all
   become: yes
 
