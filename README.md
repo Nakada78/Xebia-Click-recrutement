@@ -2,18 +2,48 @@
 
 [![Build Status](https://travis-ci.org/Nakada78/Xebia-Click-recrutement.svg)](https://travis-ci.org/Nakada78/Xebia-Click-recrutement)
 
-liens vers travis CI: https://travis-ci.org/Nakada78/Xebia-Click-recrutement
+liens vers travis CI: https://travis-ci.org/Nakada78/Xebia-Click-recrutement  
+
+Schéma fonctionnel : 
+![Image of Yaktocat](https://image.noelshack.com/fichiers/2018/08/7/1519586217-untitled-diagram-2.jpg)  
+
+Configuration Travis CI : .travis.yml     
+  
+```
+language: java  
+jdk:  
+  - oraclejdk8  
+  
+jobs:  
+  include:  
+    - stage: package  
+      install:  
+        - mvn clean package  
+    - stage: deploy staging  
+      install:  
+        - sudo apt-get update -qq  
+        - sudo apt-get install -yq python-pip python-dev ssh  
+        - sudo pip install ansible  
+      script: sudo ansible-playbook -i ansible/inventory ansible/playbook.yml -vv  
+    - stage: deploy prod  
+      install:  
+        - sudo apt-get update -qq  
+        - sudo apt-get install -yq python-pip python-dev  
+        - sudo pip install ansible  
+      script: ansible-playbook ansible/playbook.yml --extra-vars "target=localhost"    
+```
 
 SRC: 
   - code of application
 
-Ansible: 
-  - install redis and nginx
+Ansible:  
+  - install dependencies  
+  - install redis and nginx  
   - deploy code on environement staging or Production
 
 Terraform:
-  - Build infrastructure staging and production on AWS EC2
-  pour exécuter terraform installer terraform, aller dans le directory terraform et exécuter de de la façon suivante :   
+  - Build infrastructure staging and production on AWS EC2  
+  pour exécuter terraform, installer terraform, aller dans le directory terraform et exécuter le code de de la façon suivante :   
        $ cd terraform  
        $ terraform init
        $ terraform apply -auto-approve
