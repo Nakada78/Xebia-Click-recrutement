@@ -20,5 +20,11 @@
     "instance_type": "t2.micro",
     "ssh_username": "ubuntu",
     "ami_name": "Image-Xebia {{timestamp}}"
-  }]
+  }],
+  "provisioners": [
+        {
+            "type": "shell",
+            "script": "./bootstrap.sh"
+        }
+    ]
 }
