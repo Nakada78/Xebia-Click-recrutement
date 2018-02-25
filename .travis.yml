@@ -12,10 +12,10 @@ jobs:
         - sudo apt-get update -qq
         - sudo apt-get install -yq python-pip python-dev ssh
         - sudo pip install ansible
-      script: sudo ansible-playbook -i ansible/inventory ansible/playbook.yml -vv
+      script: sudo ansible-playbook -i ansible/staging/inventory ansible/playbook.yml
     - stage: deploy prod
       install:
         - sudo apt-get update -qq
         - sudo apt-get install -yq python-pip python-dev
         - sudo pip install ansible
-      script: ansible-playbook ansible/playbook.yml --extra-vars "target=localhost"
+      script: sudo ansible-playbook -i ansible/production/inventory ansible/playbook.yml
