@@ -14,5 +14,10 @@ Ansible:
 Terraform:
   - Build infrastructure staging and production on AWS EC2
   pour exécuter terraform installer terraform, aller dans le directory terraform et exécuter de de la façon suivante :   
-       $ terraform init  
-       $ terraform apply -var-file="variables.tf"  
+       $ cd terraform  
+       $ terraform init
+       $ terraform apply -auto-approve
+	   
+Packer:
+  - Create AMI Ubuntu on AWS
+  $ packer build  -var aws_access_key="ACCESS_KEY" -var aws_secret_key="SECRET_KEY" Ubuntu-Xebia.json
